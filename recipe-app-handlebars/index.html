@@ -1,0 +1,48 @@
+<!doctype html>
+<html >
+	<head>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.js"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+		<style>
+		body {
+			padding: 100px;
+		}
+		</style>
+	</head>
+</html>
+
+<script id="recipe-template" type="text/x-handlebars-template">
+	<section>
+		<h1>My Recipes</h1>
+		<br>
+
+		{{#each recipes}}
+		<article>
+	  		<h2>{{name}}:</h2>
+	  		<p>Cook Time: {{cookTime}} minutes</p>
+	  		<p>Prep Time: {{prepTime}} minutes</p>
+
+	  		<p>Ingredients:</p>
+	  		<ul>
+	  		{{#each ingredients}}
+	  			<li>{{this}}</li>
+	  		{{/each}}
+	  		</ul>
+
+	  		<p>Directions: {{directions}}</p>
+
+	  		<p>Tags:</p>
+	  		{{#if this.isVegan }}<p>Vegan</p>{{/if}}
+	  		{{#if this.isGlutenFree }}<p>Gluten Free</p>{{/if}}
+	  		{{#if this.isPaleo }}<p>Paleo</p>{{/if}}
+	  		<br>
+	  	</article>
+	  	{{/each}}
+
+  	</section>
+</script>
+
+
+<div class="content"></div>

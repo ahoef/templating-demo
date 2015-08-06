@@ -1,0 +1,30 @@
+<div class="recipes">
+	<section>
+		<h1>My Recipes</h1>
+		<br>
+
+		{% for recipe in recipes %}
+		<article>
+	  		<h2>{{recipe.name}}:</h2>
+	  		<p>Cook Time: {{recipe.cookTime}} minutes</p>
+	  		<p>Prep Time: {{recipe.prepTime}} minutes</p>
+
+	  		<p>Ingredients:</p>
+	  		<ul>
+	  			{% for ingredient in recipe.ingredients %}
+	  			<li>{{ingredient}}</li>
+	  			{% endfor %}
+	  		</ul>
+
+	  		<p>Directions: {{recipe.directions}}</p>
+	  		
+	  		<p>Tags:</p>
+	  		{% if recipe.isVegan %}<p>Vegan</p>{% endif %}
+	  		{% if recipe.isGlutenFree %}<p>Gluten Free</p>{% endif %}
+	  		{% if recipe.isPaleo %}<p>Paleo</p>{% endif %}
+	  		<br>
+	  	</article>
+	  	{% endfor %}
+
+  	</section>
+</div>
